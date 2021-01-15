@@ -1,5 +1,5 @@
-from memebot import meme
+from .meme import MemeGen
 
 
 def setup(bot):
-    bot.add_cog(meme(bot))
+    bot.add_cog(MemeGen(bot))
