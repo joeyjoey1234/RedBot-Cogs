@@ -1,4 +1,4 @@
-from memebot import meme
+from .memebot import meme
 
 
 def setup(bot):
