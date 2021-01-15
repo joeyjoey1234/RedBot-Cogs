@@ -1,5 +1,5 @@
 # RedBot-Cogs
  
-[p]repo add joejoe https://github.com/joeyjoey1234/RedBot-Cogs /n
-[p]cog list joejoe
-[p]cog install joejoe *From List*
+[p]repo add joejoe https://github.com/joeyjoey1234/RedBot-Cogs <br />
+[p]cog list joejoe <br />
+[p]cog install joejoe *From List* <br />
