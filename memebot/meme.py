@@ -33,7 +33,8 @@ Grab_a_meme()
 mememsgs = [
     "Here is a Spicy MEATBALL **{author}**",
     "Oh Daddy check this out **{author}**",
-    "Suck on this bby, **{author}**"
+    "Suck on this bby, **{author}**",
+    "Gimmie kissy"
 ]
 
 
@@ -47,7 +48,7 @@ class MemeGen(BaseCog):
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
-    async def meme(self, ctx, *, user: discord.Member=None):
+    async def meme(self, ctx):
         """Post rando Memes."""
         author = ctx.author
 
