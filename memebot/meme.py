@@ -40,8 +40,7 @@ def Grab_a_pat():
     reddits = ['headpats']
     for x in reddits:
         pats.append(request(x))
-    rand = len(pats)
-    return pats[rand]
+    return pats[0]
 
 patmsgs = [
     "**{user}** got a pat from **{author}**",
