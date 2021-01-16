@@ -37,7 +37,7 @@ class MemeGen(BaseCog):
     """Rando Memes"""
 
     def __init__(self, bot):
-        self.meme = memes
+        self.meme = Grab_a_meme()
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
@@ -45,7 +45,7 @@ class MemeGen(BaseCog):
         """Post rando Memes."""
         author = ctx.author
 
-        message = Grab_a_meme()
+        message = rnd(mememsgs)
         meme = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
         meme.set_image(url=rnd(self.memes))
         await ctx.send(embed=meme)
