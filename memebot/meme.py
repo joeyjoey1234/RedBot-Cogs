@@ -32,7 +32,7 @@ def Grab_a_cat():
     reddits = ['cats','awwwtf']
     for x in reddits:
         cats.append(request(x))
-    rand = randint(0, 10)
+    rand = randint(0, 1)
     return cats[rand]
 
 
