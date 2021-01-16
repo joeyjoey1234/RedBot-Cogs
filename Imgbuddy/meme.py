@@ -59,7 +59,7 @@ mememsgs = [
 ]
 
 
-class MemeGen(BaseCog):
+class ImgGen(BaseCog):
     """Rando Memes"""
 
     def __init__(self, bot):

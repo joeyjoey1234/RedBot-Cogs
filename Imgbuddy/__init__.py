@@ -1,9 +1,9 @@
 import subprocess
 import sys
 subprocess.check_call([sys.executable, "-m", "pip", "install", 'requests'])
-from .meme import MemeGen
+from .meme import ImgGen
 
 
 
 def setup(bot):
-    bot.add_cog(MemeGen(bot))
+    bot.add_cog(ImgGen(bot))

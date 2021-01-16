@@ -1,0 +1,10 @@
+{
+    "author" : ["Joejoe1234#6650"],
+    "install_msg" : "ImgBuddy Installed :)",
+    "name" : "memebot",
+    "short" : "rando memes",
+    "description" : "Posts images from reddit random ones pertaining to the command, also you can pat [p]meme, [p]cute [p]pat",
+    "disabled" : false,
+    "tags" : ["meme", "memes","cute", "pats"],
+    "min_python_version": [3, 6, 0]
+}
