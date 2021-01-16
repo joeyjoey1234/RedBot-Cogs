@@ -37,7 +37,7 @@ class MemeGen(BaseCog):
     """Rando Memes"""
 
     def __init__(self, bot):
-
+        self.meme = memes
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
