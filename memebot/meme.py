@@ -19,28 +19,24 @@ def request(reddit):
     return grab['url']
 
 def Grab_a_meme():
-    memes = []
-    reddits = ['wholesomememes','', 'technicallythetruth', 'meirl', 'memes', 'ComedyCemetery', 'terriblefacebookmemes'
-        , 'nukedmemes', 'surrealmemes', 'comedyheaven', 'dogelore']
-    for x in reddits:
-        memes.append(request(x))
-    rand = randint(0, 10)
-    return memes[rand]
+    memes =''
+    reddits = ['','meirl', 'memes','dogelore']
+    rand = randint(0,3)
+    memes = request(reddits[rand])
+    return memes
 
 def Grab_a_cute():
-    cutes = []
+    cutes = ''
     reddits = ['cats','awwwtf']
-    for x in reddits:
-        cutes.append(request(x))
-    rand = randint(0, 1)
-    return cutes[rand]
+    rand = randint(0,1)
+    cutes = request(reddits[rand])
+    return cutes
 
 def Grab_a_pat():
-    pats = []
+    pats = ''
     reddits = ['headpats']
-    for x in reddits:
-        pats.append(request(x))
-    return pats[0]
+    pats = request(reddits[0])
+    return pats
 
 patmsgs = [
     "**{user}** got a pat from **{author}**",
