@@ -35,6 +35,14 @@ def Grab_a_cute():
     rand = randint(0, 1)
     return cutes[rand]
 
+def Grab_a_pat():
+    pats = []
+    reddits = ['headpats']
+    for x in reddits:
+        pats.append(request(x))
+    rand = randint(0, 1)
+    return pats[rand]
+
 
 
 mememsgs = [
@@ -80,3 +88,14 @@ class MemeGen(BaseCog):
         cute = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
         cute.set_image(url=Grab_a_cute())
         await ctx.send(embed=cute)
+
+    @commands.command()
+    @commands.cooldown(6, 60, commands.BucketType.user)
+    async def pat(self, ctx):
+        """Post rando cats"""
+        author = ctx.author
+
+        message = rnd(mememsgs)
+        pat = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
+        pat.set_image(url=Grab_a_pat())
+        await ctx.send(embed=pat)
