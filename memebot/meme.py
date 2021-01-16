@@ -58,7 +58,7 @@ class MemeGen(BaseCog):
         await ctx.send(embed=meme)
 
     @commands.command()
-    async def _pda_version(self, ctx):
+    async def meme_version(self, ctx):
         """Show version"""
         ver = self.version
         await ctx.send("You are using memebot version {}".format(ver))
