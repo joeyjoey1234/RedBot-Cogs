@@ -98,7 +98,7 @@ class ImgGen(BaseCog):
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
-    async def pats(self, ctx, *, user: discord.Member = None):
+    async def pat(self, ctx, *, user: discord.Member = None):
         """Pat users."""
         author = ctx.author
 
