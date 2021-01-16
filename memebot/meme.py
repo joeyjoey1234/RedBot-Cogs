@@ -16,7 +16,6 @@ __author__ = "Joejoe1234"
 ## i was only expecting like 2 sources, but things got out of hand.
 def request(reddit):
     grab = json.loads(requests.get('https://meme-api.herokuapp.com/gimme/{}'.format(reddit)).text)
-    print(grab)
     return grab['url']
 
 def Grab_a_meme():
