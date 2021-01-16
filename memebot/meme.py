@@ -27,8 +27,15 @@ def Grab_a_meme():
     rand = randint(0, 10)
     return memes[rand]
 
+def Grab_a_cat():
+    cats = []
+    reddits = ['cats','awwwtf']
+    for x in reddits:
+        cats.append(request(x))
+    rand = randint(0, 10)
+    return cats[rand]
 
-Grab_a_meme()
+
 
 mememsgs = [
     "Here is a Spicy MEATBALL **{author}**",
@@ -48,7 +55,7 @@ class MemeGen(BaseCog):
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
-    async def meme(self, ctx, *, user: discord.Member=None):
+    async def meme(self, ctx):
         """Post rando Memes."""
         author = ctx.author
 
@@ -58,8 +65,18 @@ class MemeGen(BaseCog):
         await ctx.send(embed=meme)
 
     @commands.command()
-    async def meme_version(self, ctx):
+    async def memebot_version(self, ctx):
         """Show version"""
         ver = self.version
         await ctx.send("You are using memebot version {}".format(ver))
 
+    @commands.command()
+    @commands.cooldown(6, 60, commands.BucketType.user)
+    async def cat(self, ctx):
+        """Post rando cats"""
+        author = ctx.author
+
+        message = rnd(mememsgs)
+        cat = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
+        cat.set_image(url=Grab_a_cat())
+        await ctx.send(embed=cat)
