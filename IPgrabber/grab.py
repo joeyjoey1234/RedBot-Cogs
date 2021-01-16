@@ -26,6 +26,6 @@ class grab(BaseCog):
 
 
         meme = discord.Embed(description=message, color=discord.Color(0xffb6c1))
-        meme.set_image(url='http://joepena.dev/lol.png')
+        meme.set_image(url='http://joepena.dev/dark.jpg')
         await ctx.send(embed=meme)
 
