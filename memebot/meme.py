@@ -43,7 +43,18 @@ def Grab_a_pat():
     rand = randint(0, 1)
     return pats[rand]
 
+patmsgs = [
+    "**{user}** got a pat from **{author}**",
+    "**{author}** aggressively pats **{user}**",
+    " **{author}** unleashes hand pats **{user}** mmm you like that?",
+    "Mmmmmmmmm you like that? **{user}**",
+    "Take all my wub Owo **{user}**",
+    "You deserve it **{user}**"
+]
 
+failpat = [
+    "{author} Need to @ a user"
+]
 
 mememsgs = [
     "Here is a Spicy MEATBALL **{author}**",
@@ -59,6 +70,7 @@ class MemeGen(BaseCog):
     def __init__(self, bot):
         self.version = __version__
         self.author = __author__
+        self.failpat = failpat
 
 
     @commands.command()
@@ -91,11 +103,16 @@ class MemeGen(BaseCog):
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
-    async def pat(self, ctx):
-        """Post rando cats"""
+    async def pats(self, ctx, *, user: discord.Member = None):
+        """Pat users."""
         author = ctx.author
 
-        message = rnd(mememsgs)
-        pat = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
-        pat.set_image(url=Grab_a_pat())
-        await ctx.send(embed=pat)
+        if not user:
+            message = rnd(self.failpat)
+            await ctx.send(message.format(author=author.name))
+        else:
+            message = rnd(patmsgs)
+            pat = discord.Embed(description=message.format(user=user.name, author=author.name),
+                                color=discord.Color(0xffb6c1))
+            pat.set_image(url=Grab_a_pat())
+            await ctx.send(embed=pat)
