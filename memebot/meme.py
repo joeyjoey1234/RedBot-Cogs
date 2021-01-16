@@ -27,13 +27,13 @@ def Grab_a_meme():
     rand = randint(0, 10)
     return memes[rand]
 
-def Grab_a_cat():
-    cats = []
+def Grab_a_cute():
+    cutes = []
     reddits = ['cats','awwwtf']
     for x in reddits:
-        cats.append(request(x))
+        cutes.append(request(x))
     rand = randint(0, 1)
-    return cats[rand]
+    return cutes[rand]
 
 
 
@@ -72,11 +72,11 @@ class MemeGen(BaseCog):
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
-    async def cat(self, ctx):
+    async def cute(self, ctx):
         """Post rando cats"""
         author = ctx.author
 
         message = rnd(mememsgs)
-        cat = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
-        cat.set_image(url=Grab_a_cat())
+        cute = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
+        cute.set_image(url=Grab_a_cute())
         await ctx.send(embed=cat)
