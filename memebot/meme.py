@@ -15,9 +15,11 @@ memes = []
 r1 = json.loads(requests.get('https://meme-api.herokuapp.com/gimme/wholesomememes').text)
 r2 = json.loads(requests.get('https://meme-api.herokuapp.com/gimme').text)
 r3 = json.loads(requests.get('https://meme-api.herokuapp.com/gimme/technicallythetruth').text)
+r4 = json.loads(requests.get('https://meme-api.herokuapp.com/gimme/pics').text)
 memes.append(r1['url'])
 memes.append(r2['url'])
 memes.append(r3['url'])
+memes.append(r4['url'])
 
 
 
