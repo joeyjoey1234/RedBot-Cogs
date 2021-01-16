@@ -79,4 +79,4 @@ class MemeGen(BaseCog):
         message = rnd(mememsgs)
         cute = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
         cute.set_image(url=Grab_a_cute())
-        await ctx.send(embed=cat)
+        await ctx.send(embed=cute)
