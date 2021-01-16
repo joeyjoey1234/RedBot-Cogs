@@ -47,6 +47,6 @@ class MemeGen(BaseCog):
 
         message = rnd(mememsgs)
         meme = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
-        meme.set_image(url=self.memes)
+        meme.set_image(url=self.meme)
         await ctx.send(embed=meme)
 
