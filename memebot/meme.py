@@ -36,6 +36,11 @@ mememsgs = [
 class MemeGen(BaseCog):
     """Rando Memes"""
 
+    def __init__(self, bot):
+        self.version = __version__
+        self.Author = __author__
+
+
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
     async def meme(self, ctx, *, user: discord.Member=None):
@@ -44,6 +49,6 @@ class MemeGen(BaseCog):
 
         message = rnd(mememsgs)
         meme = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
-        meme.set_image(url=Grab_a_meme())
+        meme.set_image(url=self.meme)
         await ctx.send(embed=meme)
 
