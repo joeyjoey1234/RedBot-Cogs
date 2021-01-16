@@ -3,7 +3,7 @@ import sys
 import pkg_resources
 
 
-required = ['requests']
+required = {'requests'}
 installed = {pkg.key for pkg in pkg_resources.working_set}
 missing = required - installed
 
