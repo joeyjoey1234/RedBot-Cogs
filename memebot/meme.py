@@ -36,9 +36,6 @@ mememsgs = [
 class MemeGen(BaseCog):
     """Rando Memes"""
 
-    def __init__(self, bot):
-        self.meme = Grab_a_meme()
-
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
     async def meme(self, ctx, *, user: discord.Member=None):
