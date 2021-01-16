@@ -12,15 +12,20 @@ BaseCog = getattr(commands, "Cog", object)
 __version__ = "1.0"
 __author__ = "Joejoe1234"
 
+#### I really could make this function better and a ALOT SHORTER
+## i was only expecting like 2 sources, but things got out of hand.
+def request(reddit):
+    grab = json.loads(requests.get('https://meme-api.herokuapp.com/gimme/{}'.format(reddit)).text)
+    print(grab)
+    return grab['url']
+
 def Grab_a_meme():
     memes = []
-    r1 = json.loads(requests.get('https://meme-api.herokuapp.com/gimme/wholesomememes').text)
-    r2 = json.loads(requests.get('https://meme-api.herokuapp.com/gimme').text)
-    r3 = json.loads(requests.get('https://meme-api.herokuapp.com/gimme/technicallythetruth').text)
-    memes.append(r1['url'])
-    memes.append(r2['url'])
-    memes.append(r3['url'])
-    rand = randint(0, 2)
+    reddits = ['wholesomememes','', 'technicallythetruth', 'meirl', 'memes', 'ComedyCemetery', 'terriblefacebookmemes'
+        , 'nukedmemes', 'surrealmemes', 'comedyheaven', 'dogelore']
+    for x in reddits:
+        memes.append(request(x))
+    rand = randint(0, 10)
     return memes[rand]
 
 
