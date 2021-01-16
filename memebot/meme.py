@@ -34,7 +34,7 @@ mememsgs = [
     "Here is a Spicy MEATBALL **{author}**",
     "Oh Daddy check this out **{author}**",
     "Suck on this bby, **{author}**",
-    "Gimmie kissy"
+    "Gimmie kissy **{author}**"
 ]
 
 
@@ -43,12 +43,12 @@ class MemeGen(BaseCog):
 
     def __init__(self, bot):
         self.version = __version__
-        self.Author = __author__
+        self.author = __author__
 
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
-    async def meme(self, ctx):
+    async def meme(self, ctx, *, user: discord.Member=None):
         """Post rando Memes."""
         author = ctx.author
 
@@ -56,4 +56,10 @@ class MemeGen(BaseCog):
         meme = discord.Embed(description=message.format(author=author.name), color=discord.Color(0xffb6c1))
         meme.set_image(url=Grab_a_meme())
         await ctx.send(embed=meme)
+
+    @commands.command()
+    async def _pda_version(self, ctx):
+        """Show version"""
+        ver = self.version
+        await ctx.send("You are using memebot version {}".format(ver))
 
